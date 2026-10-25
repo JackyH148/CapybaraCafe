@@ -1,0 +1,57 @@
+:root {
+  --bg: #f6efe6; --card: #fffaf3; --ink: #3b2a1e; --muted: #8a7461;
+  --accent: #c8743a; --wall: #f3dcc0; --floor: #d9b48f; --good: #6bbf59;
+  font-family: system-ui, -apple-system, sans-serif; color: var(--ink);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); }
+h1, h2 { margin: 0 0 .5rem; }
+h2 { font-size: 1.1rem; margin-top: .5rem; }
+small { display: block; color: var(--muted); font-size: .75rem; }
+button { background: var(--accent); color: white; border: 0; border-radius: 8px; padding: .45rem .8rem; cursor: pointer; font: inherit; white-space: nowrap; }
+button:disabled { opacity: .45; cursor: default; }
+button.link { background: none; color: var(--muted); text-decoration: underline; }
+input { border: 1px solid #d8c6b4; border-radius: 8px; padding: .45rem .6rem; font: inherit; min-width: 0; flex: 1; background: white; }
+.card { background: var(--card); border-radius: 16px; padding: 1rem; box-shadow: 0 2px 8px #3b2a1e14; }
+.row { display: flex; gap: .5rem; flex-wrap: wrap; }
+.error { color: #c0392b; }
+.loading { text-align: center; margin-top: 30vh; }
+
+.login { max-width: 360px; margin: 18vh auto; display: flex; flex-direction: column; gap: .75rem; text-align: center; }
+.app { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+header { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+header h1 { flex: 1; font-size: 1.5rem; margin: 0; }
+.funding { font-weight: 700; font-size: 1.2rem; }
+
+.cafe { border-radius: 16px; overflow: hidden; background: linear-gradient(var(--wall) 0 55%, var(--floor) 55%); padding: 1rem; margin-bottom: 1rem; }
+.shelf { font-size: 2rem; display: flex; gap: .5rem; min-height: 2.5rem; align-items: center; }
+.shelf em { font-size: .9rem; color: var(--muted); }
+.floor { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; padding: 1rem 0; }
+.staff { display: flex; flex-direction: column; align-items: center; width: 180px; text-align: center; }
+.bubble { background: white; border-radius: 12px; padding: .5rem .7rem; font-size: .85rem; position: relative; margin-bottom: .4rem; min-height: 3rem; }
+.bubble::after { content: ''; position: absolute; bottom: -8px; left: 50%; border: 8px solid transparent; border-top-color: white; border-bottom: 0; transform: translateX(-50%); }
+.bar { width: 100%; height: 8px; border-radius: 4px; background: #0002; margin-top: .3rem; overflow: hidden; }
+.bar div { height: 100%; background: var(--good); transition: width .5s; }
+.capy.legendary { filter: drop-shadow(0 0 6px gold); }
+.capy.thriving, .capy.happy { animation: bob 2s ease-in-out infinite; }
+.capy.miserable { filter: saturate(.4); }
+@keyframes bob { 50% { transform: translateY(-4px); } }
+.log { list-style: none; padding: .5rem .75rem; margin: 0; background: #fff9; border-radius: 10px; font-size: .8rem; }
+.log li + li { margin-top: .2rem; color: var(--muted); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+.hint { font-size: .8rem; color: var(--muted); }
+.tasks, .shop, .members { list-style: none; padding: 0; margin: .5rem 0; }
+.tasks li, .shop li { display: flex; align-items: center; gap: .5rem; padding: .45rem 0; border-bottom: 1px solid #0000000d; }
+.tasks li > span, .shop li > span:not(.emoji) { flex: 1; }
+.tasks li.missed small { color: #c0392b; }
+.tasks .empty { color: var(--muted); }
+.shop .emoji { font-size: 1.5rem; }
+.emotes { display: grid; grid-template-columns: repeat(5, 1fr); gap: .4rem; text-align: center; font-size: 1.6rem; margin-bottom: .75rem; }
+.emotes .locked { opacity: .45; }
+.members li::before { content: '🐾 '; }
+code { background: #0000000f; padding: .1rem .4rem; border-radius: 4px; font-weight: 700; }
+
+.toasts { position: fixed; bottom: 1rem; right: 1rem; left: 1rem; display: flex; flex-direction: column; align-items: flex-end; gap: .4rem; pointer-events: none; }
+.toast { background: var(--ink); color: white; padding: .55rem .85rem; border-radius: 10px; max-width: 360px; font-size: .9rem; animation: pop .2s; }
+@keyframes pop { from { transform: translateY(8px); opacity: 0; } }
